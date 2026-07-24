@@ -14,6 +14,7 @@ MVP in progress. Full language/engine contract: [`SPEC.md`](SPEC.md). Product br
 - Multi-ledger **project** layout with CUE config (`contapila.cue`)
 - CLI reports: check, balances, journal, P&L, net worth, account
 - `ingest` — merge JSONL directives into a beancount file
+- `dump` — PDF/XLSX hierarchy as compact JSON for stdlib extract scripts
 - `web` — localhost read-only HTTP UI (Go templates + dense charts)
 - Single Go binary; no plugins
 
@@ -64,6 +65,7 @@ contapila -C testdata/example web
 | `account …` | Account-focused views |
 | `parse` | Parse diagnostics |
 | `ingest --file path [-- CMD …]` | JSONL → beancount merge |
+| `dump <dialect> <path>` | PDF/XLSX element tree → compact JSON |
 | `web [ledger]` | Read-only HTTP UI |
 
 Ledger arguments are **directory names** under the project root (e.g. `personal`, `acme`).

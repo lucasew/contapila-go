@@ -62,7 +62,7 @@ func newTestRoot() *cobra.Command {
 	root.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "enable debug logging on stderr")
 	root.AddCommand(
 		statusCmd(), checkCmd(), balancesCmd(), journalCmd(), pnlCmd(),
-		networthCmd(), accountCmd(), parseCmd(), ingestCmd(), webCmd(), desktopCmd(), lspCmd(),
+		networthCmd(), accountCmd(), parseCmd(), ingestCmd(), webCmd(), desktopCmd(), lspCmd(), dumpCmd(),
 	)
 	return root
 }
