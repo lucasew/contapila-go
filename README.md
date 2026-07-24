@@ -65,7 +65,7 @@ contapila -C testdata/example web
 | `account …` | Account-focused views |
 | `parse` | Parse diagnostics |
 | `ingest --file path [-- CMD …]` | JSONL → beancount merge |
-| `dump <dialect> <path>` | PDF/XLSX element tree → compact JSON (dialect is a Cobra subcommand) |
+| `dump <dialect> <path>` | PDF/XLSX element tree → compact JSON (`--password` for encrypted files) |
 | `web [ledger]` | Read-only HTTP UI |
 
 Ledger arguments are **directory names** under the project root (e.g. `personal`, `acme`).

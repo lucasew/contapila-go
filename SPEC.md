@@ -62,7 +62,7 @@ Illustrative commands (names may be refined at implement time):
 | `contapila pnl [ledger]` | Income vs expenses for a period |
 | `contapila networth [ledger]` | Net worth as-of (shared prices) |
 | `contapila ingest --file path [-- CMD …]` | Merge JSONL directives into a beancount file (upsert by `id` → `ingest_id`) |
-| `contapila dump <dialect> <path>` | Dump PDF/XLSX element tree as compact JSON (`dump` + dialect subcommand `$format-$lib-v$n`; for stdlib-only extract scripts → ingest) |
+| `contapila dump <dialect> <path>` | Dump PDF/XLSX element tree as compact JSON (`dump` + dialect subcommand `$format-$lib-v$n`; `--password` for encrypted files; for stdlib-only extract scripts → ingest) |
 | `contapila web [ledger]` | Read-only HTTP UI (headless; owns bind via `--addr`) |
 | `contapila desktop [ledger]` | Same UI via **eletrocromo** (Helium `--app` window; library owns loopback bind + token auth) |
 | `contapila lsp` | Language server over stdio (Helix dogfood; see §3.4) |

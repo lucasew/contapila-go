@@ -6,7 +6,7 @@ import (
 )
 
 func TestUnknownDialect(t *testing.T) {
-	_, err := Extract("no-such-v1", "x")
+	_, err := Extract("no-such-v1", "x", Options{})
 	if err == nil {
 		t.Fatal("expected error")
 	}

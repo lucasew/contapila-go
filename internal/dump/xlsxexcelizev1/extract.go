@@ -36,8 +36,12 @@ func init() {
 }
 
 // Extract opens path and returns the workbook element tree.
-func Extract(path string) (dump.ExtractedData, error) {
-	f, err := excelize.OpenFile(path)
+func Extract(path string, opts dump.Options) (dump.ExtractedData, error) {
+	var openOpts excelize.Options
+	if opts.Password != "" {
+		openOpts.Password = opts.Password
+	}
+	f, err := excelize.OpenFile(path, openOpts)
 	if err != nil {
 		return dump.ExtractedData{}, fmt.Errorf("open xlsx: %w", err)
 	}

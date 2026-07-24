@@ -26,6 +26,7 @@ package pdfdslipakv1
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/dslipak/pdf"
 	"github.com/lucasew/contapila-go/internal/dump"
@@ -39,8 +40,8 @@ func init() {
 }
 
 // Extract opens path and returns the document element tree.
-func Extract(path string) (dump.ExtractedData, error) {
-	r, err := pdf.Open(path)
+func Extract(path string, opts dump.Options) (dump.ExtractedData, error) {
+	r, err := openPDF(path, opts.Password)
 	if err != nil {
 		return dump.ExtractedData{}, fmt.Errorf("open pdf: %w", err)
 	}
@@ -358,4 +359,32 @@ func rectProps(v pdf.Value) []any {
 		out[i] = numValue(v.Index(i))
 	}
 	return out
+}
+
+func openPDF(path, password string) (*pdf.Reader, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	fi, err := f.Stat()
+	if err != nil {
+		f.Close()
+		return nil, err
+	}
+	// NewReaderEncrypted tries empty owner/user first, then calls pw until "".
+	triedUser := false
+	pw := func() string {
+		if password == "" || triedUser {
+			return ""
+		}
+		triedUser = true
+		return password
+	}
+	r, err := pdf.NewReaderEncrypted(f, fi.Size(), pw)
+	if err != nil {
+		f.Close()
+		return nil, err
+	}
+	// Reader keeps f alive (same as pdf.Open); no explicit close API.
+	return r, nil
 }

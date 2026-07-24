@@ -73,10 +73,12 @@ func runCLI(t *testing.T, args ...string) (stdout, stderr string, err error) {
 	t.Helper()
 	workDir = ""
 	verbose = false
+	dumpPassword = ""
 	logLevel.Set(slog.LevelInfo)
 	t.Cleanup(func() {
 		workDir = ""
 		verbose = false
+		dumpPassword = ""
 		logLevel.Set(slog.LevelInfo)
 	})
 

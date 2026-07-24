@@ -17,14 +17,22 @@ type Node struct {
 }
 
 // ExtractedData is the envelope written by every dialect.
+// Password is never included.
 type ExtractedData struct {
 	Dialect string `json:"dialect"`
 	Source  string `json:"source"`
 	Data    Node   `json:"data"`
 }
 
+// Options control how a source file is opened.
+type Options struct {
+	// Password for encrypted PDF/XLSX. Empty means try without a user password.
+	// Never written into ExtractedData.
+	Password string
+}
+
 // Extractor builds ExtractedData for one path.
-type Extractor func(path string) (ExtractedData, error)
+type Extractor func(path string, opts Options) (ExtractedData, error)
 
 var (
 	mu       sync.RWMutex
@@ -68,22 +76,17 @@ func Lookup(dialect string) (Extractor, bool) {
 }
 
 // Extract runs the registered extractor for dialect on path.
-func Extract(dialect, path string) (ExtractedData, error) {
+func Extract(dialect, path string, opts Options) (ExtractedData, error) {
 	fn, ok := Lookup(dialect)
 	if !ok {
 		return ExtractedData{}, fmt.Errorf("unknown dialect %q (known: %s)", dialect, joinDialects())
 	}
-	return fn(path)
+	return fn(path, opts)
 }
 
-// MarshalCompact encodes v as compact JSON (no HTML escape).
+// MarshalCompact encodes v as compact JSON.
 func MarshalCompact(v any) ([]byte, error) {
-	var buf []byte
-	buf, err := json.Marshal(v)
-	if err != nil {
-		return nil, err
-	}
-	return buf, nil
+	return json.Marshal(v)
 }
 
 func joinDialects() string {

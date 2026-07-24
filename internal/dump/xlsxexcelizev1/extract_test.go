@@ -11,7 +11,7 @@ import (
 
 func TestExtractSample(t *testing.T) {
 	path := filepath.Join("testdata", "sample.xlsx")
-	got, err := Extract(path)
+	got, err := Extract(path, dump.Options{})
 	if err != nil {
 		t.Fatalf("Extract: %v", err)
 	}
@@ -46,7 +46,7 @@ func TestDialectRegistered(t *testing.T) {
 }
 
 func TestTypedCellsPresent(t *testing.T) {
-	got, err := Extract(filepath.Join("testdata", "sample.xlsx"))
+	got, err := Extract(filepath.Join("testdata", "sample.xlsx"), dump.Options{})
 	if err != nil {
 		t.Fatal(err)
 	}

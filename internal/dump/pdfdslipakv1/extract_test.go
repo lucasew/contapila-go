@@ -11,7 +11,7 @@ import (
 
 func TestExtractSample(t *testing.T) {
 	path := filepath.Join("testdata", "sample.pdf")
-	got, err := Extract(path)
+	got, err := Extract(path, dump.Options{})
 	if err != nil {
 		t.Fatalf("Extract: %v", err)
 	}
