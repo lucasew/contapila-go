@@ -43,6 +43,8 @@ github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar v0.0.0-20260713221032-86
 github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar v0.0.0-20260713221032-8673315d25fc/go.mod h1:jR96Nqj1lVnP2eTRrbQnHUoSJ3uzijfhErwZhSi+bnk=
 github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/beancount v0.0.0-20260712133229-595d7ebeb83b h1:wfiJPJ7dRBsLAeWPlV8Zid0o706liCeWonTqYqF1R6w=
 github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/beancount v0.0.0-20260712133229-595d7ebeb83b/go.mod h1:/UkoaTlVUs+Dfvqjvfj4Ea0NpM3Q580LyzzJ2kCoFvA=
+github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/beancount v0.0.0-20260713221032-8673315d25fc h1:6G7LIGW3AgvUOLiJyLhccLOu0R+MNwJ0p/w+rWY/WwU=
+github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/beancount v0.0.0-20260713221032-8673315d25fc/go.mod h1:/UkoaTlVUs+Dfvqjvfj4Ea0NpM3Q580LyzzJ2kCoFvA=
 github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/go v0.0.0-20260713221032-8673315d25fc h1:7IwiqYIb8+5byJsapNcpSrZwYLlQa9QD2R8Mx7JwqWM=
 github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/go v0.0.0-20260713221032-8673315d25fc/go.mod h1:yToVHO1BKzVhZ9FrYDf994Bk76/0Kej2OLjwNY+mRYI=
 github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/json v0.0.0-20260713221032-8673315d25fc h1:qIGm9c43DlrZ8WCb6MoifhJH4+64wZnYmM9J48A554c=

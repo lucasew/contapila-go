@@ -41,7 +41,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
 	github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar v0.0.0
-	github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/beancount v0.0.0-20260712133229-595d7ebeb83b
+	github.com/modernc-tree-sitter/ccgo-tree-sitter/grammar/beancount v0.0.0-20260713221032-8673315d25fc
 	github.com/pelletier/go-toml/v2 v2.3.1 // indirect
 	github.com/protocolbuffers/txtpbfmt v0.0.0-20260420112717-c39628bde8b5 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
